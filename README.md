@@ -1,4 +1,3 @@
-![image](https://github.com/darwin320/PruebaTecnicaScotiabank/assets/81993592/76d09906-78b3-4be4-9929-ae7d193c3394)# Prueba Técnica - Gestión de Turnos
 
 ## Descripción
 
