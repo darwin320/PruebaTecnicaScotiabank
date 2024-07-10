@@ -22,6 +22,5 @@ Este proyecto tiene como objetivo desarrollar una solución para la gestión de 
 
 1. **Clonar el repositorio**:
    ```sh
-   git clone https://github.com/tu_usuario/prueba-tecnica-gestion-turnos.git
-   cd prueba-tecnica-gestion-turnos
+   git clone https://github.com/darwin320/PruebaTecnicaScotiabank
 2. **Ejecutar Proyecto PruebaTecnica.Api**:
