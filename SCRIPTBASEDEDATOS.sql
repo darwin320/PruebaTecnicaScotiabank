@@ -1,4 +1,19 @@
+-- creacion de la base de datos
 
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'Asesoftware')
+BEGIN
+    CREATE DATABASE Asesoftware;
+    PRINT 'Base de datos Asesoftware creada.';
+END
+ELSE
+BEGIN
+    PRINT 'La base de datos Asesoftware ya existe.';
+END
+GO
+
+-- Usar la base de datos Asesoftware
+USE Asesoftware;
+GO
 -- Script de creacion de las tablas en la base de datos 
 
 CREATE TABLE comercios (
@@ -128,117 +143,78 @@ SET QUOTED_IDENTIFIER ON
 
 GO
  
-
 CREATE PROCEDURE [dbo].[procClienteSelect]
 
 AS
 
 BEGIN
-
 	SET NOCOUNT ON
-
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
- 
 	SELECT	idcliente,
-
 			nombre,
-
 			apikey,
-
 			codigo_convenio
-
 	FROM dbo.clientes
-
 END
-
 GO
-
 
 SET ANSI_NULLS ON
-
 GO
- 
 SET QUOTED_IDENTIFIER ON
-
 GO
 
  
 CREATE PROCEDURE [dbo].[procClienteSelectByapikey]
-
 (
-
 	@@apikey	VARCHAR(50)
-
 )
-
 AS
 
 BEGIN
-
 	SET NOCOUNT ON
-
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
- 
 	SELECT	idcliente,
-
 			nombre,
-
 			apikey,
-
 			codigo_convenio
-
 	FROM dbo.clientes
-
 	WHERE apikey = @@apikey
-
 END
-
 GO
- 
- 
 
 
 SET ANSI_NULLS ON
-
 GO
- 
 SET QUOTED_IDENTIFIER ON
-
 GO
  
 
 
 CREATE PROCEDURE [dbo].[procClienteSelectById]
-
 (
-
 	@@idcliente	INT
-
 )
-
 AS
 
 BEGIN
-
 	SET NOCOUNT ON
-
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
- 
 	SELECT	idcliente,
-
 			nombre,
-
 			apikey,
-
 			codigo_convenio
-
 	FROM dbo.clientes
-
 	WHERE idcliente = @@idcliente
-
 END
 
 GO
  
  
+ -- insercion de un cliente de prueba
  
+USE [Asesoftware]
+GO
+
+INSERT INTO [dbo].[clientes] (nombre, apikey, codigo_convenio)
+VALUES ('Cliente Prueba', '12345-ABCDE', 'CONV01');
+GO
